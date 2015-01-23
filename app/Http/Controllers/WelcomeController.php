@@ -30,7 +30,8 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		$version = '0.2'; //Config::get('settings.version');
+		return view('welcome', array('version' =>$version) );
 	}
 
 }

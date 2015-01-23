@@ -38,7 +38,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">ellie 0.1</div>
+				<div class="title">ellie {{ $version }}</div>
 				<div class="quote">welcome to ellie</div>
 			</div>
 		</div>
