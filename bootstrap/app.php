@@ -10,8 +10,15 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
+class ellieApp extends Illuminate\Foundation\Application
+{
+	public function storagePath()
+	{
+		return realpath(__DIR__.'/../../storage');
+	}
+}
 
-$app = new Illuminate\Foundation\Application(
+$app = new ellieApp (
 	realpath(__DIR__.'/../')
 );
 
