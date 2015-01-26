@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Variables;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -30,8 +32,12 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		$version = '0.0.2'; //Config::get('settings.version');
-		return view('welcome', array('version' =>$version) );
+		$data = [];
+		$data['version'] = '0.0.2'; //Config::get('settings.version');
+		$data['site_name'] = Variables::getVar('site_name');
+		$data['site_color'] = Variables::getVar('site_color');
+		$data['site_template'] = Variables::getVar('site_template');
+		return view('welcome', $data );
 	}
 
 }
