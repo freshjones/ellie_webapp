@@ -13,9 +13,16 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+// Route group for API versioning
+Route::group(array('prefix' => 'api/v1'), function()
+{
+    Route::resource('url', 'UrlController');
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+
+Route::group(['prefix' => 'api/v1'], function()
+{
+
+	Route::resource('variables', 'variableController');
+
+});
