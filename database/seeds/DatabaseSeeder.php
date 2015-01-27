@@ -26,9 +26,9 @@ class VariablesTableSeeder extends Seeder {
 		DB::table('variables')->delete();
 
 		$variables = array();
-		$variables[] = ['name' => 'site_name', 'value' => getenv(SITE_NAME),];
-		$variables[] = ['name' => 'site_color', 'value' => getenv(SITE_COLOR),];
-		$variables[] = ['name' => 'site_template', 'value' => getenv(SITE_TEMPLATE),];
+		$variables[] = ['name' => 'site_name', 'value' => getenv('SITE_NAME'),];
+		$variables[] = ['name' => 'site_color', 'value' => getenv('SITE_COLOR'),];
+		$variables[] = ['name' => 'site_template', 'value' => getenv('SITE_TEMPLATE'),];
 
 		DB::table('variables')->insert($variables);
 
