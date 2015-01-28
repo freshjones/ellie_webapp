@@ -13,6 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
+
 Route::group(['prefix' => 'api/v1'], function()
 {
 	Route::get('siteconfig', ['as' => 'api.v1.variables', 'uses' => 'SiteconfigController@index']);

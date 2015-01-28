@@ -2,6 +2,8 @@
 
 use App\Variables;
 
+use App\Commands\SiteInitialization;
+
 class WelcomeController extends Controller {
 
 	/*
@@ -32,6 +34,7 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
+
 		$data = [];
 		$data['version'] = '0.0.2'; //Config::get('settings.version');
 		$data['site_name'] = Variables::getVar('site_name');
