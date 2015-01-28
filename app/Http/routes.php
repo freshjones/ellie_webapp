@@ -13,16 +13,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
-// Route group for API versioning
-Route::group(array('prefix' => 'api/v1'), function()
-{
-    Route::resource('url', 'UrlController');
-});
-
-
 Route::group(['prefix' => 'api/v1'], function()
 {
 
-	Route::resource('variables', 'variableController');
+	Route::post('siteconfig', ['as' => 'api.v1.variables.store', 'uses' => 'SiteconfigController@store']);
 
 });

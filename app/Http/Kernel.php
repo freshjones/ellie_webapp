@@ -9,13 +9,15 @@ class Kernel extends HttpKernel {
 	 *
 	 * @var array
 	 */
+	/*
+		'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
+	*/
 	protected $middleware = [
 		'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
 		'Illuminate\Cookie\Middleware\EncryptCookies',
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'Illuminate\Foundation\Http\Middleware\VerifyCsrfToken',
 	];
 
 	/**
