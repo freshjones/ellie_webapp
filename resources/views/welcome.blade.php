@@ -39,9 +39,9 @@
 		<div class="container">
 			<div class="content">
 				<div class="title">{{ $site_name }}</div>
-				<div class="quote">{{ $version }}</div>
-				<div class="quote">{{ $site_color }}</div>
-				<div class="quote">{{ $site_template }}</div>
+				<div class="quote">Version No.: {{ $version }}</div>
+				<div class="quote">Color: {{ $site_color }}</div>
+				<div class="quote">Template: {{ $site_template }}</div>
 			</div>
 		</div>
 	</body>
