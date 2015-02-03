@@ -36,7 +36,7 @@ class WelcomeController extends Controller {
 	{
 
 		$data = [];
-		$data['version'] = '0.0.3'; //Config::get('settings.version');
+		$data['version'] = '0.0.4'; //Config::get('settings.version');
 		$data['site_name'] = Variables::getVar('site_name');
 		$data['site_color'] = Variables::getVar('site_color');
 		$data['site_template'] = Variables::getVar('site_template');
