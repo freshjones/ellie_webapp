@@ -13,6 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');
 
+Route::group(['prefix' => 'cache', 'namespace' => 'Cache' ], function()
+{
+	Route::get('clear/{cache?}', ['as' => 'cache/clear', 'uses' => 'CacheController@clear']);
+});
 
 Route::group(['prefix' => 'api/v1'], function()
 {

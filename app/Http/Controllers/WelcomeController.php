@@ -1,10 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Variables;
 
-use App\Commands\SiteInitialization;
-
-class WelcomeController extends Controller {
+class WelcomeController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -24,7 +21,10 @@ class WelcomeController extends Controller {
 	 */
 	public function __construct()
 	{
+		//parent::__construct();
+
 		$this->middleware('guest');
+
 	}
 
 	/**
@@ -36,11 +36,8 @@ class WelcomeController extends Controller {
 	{
 
 		$data = [];
-		$data['version'] = '0.0.1'; //Config::get('settings.version');
-		$data['site_name'] = Variables::getVar('site_name');
-		$data['site_color'] = Variables::getVar('site_color');
-		$data['site_template'] = Variables::getVar('site_template');
-		return view('welcome', $data );
+
+		return view('master', $data );
 	}
 
 }
