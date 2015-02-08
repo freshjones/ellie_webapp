@@ -555,13 +555,9 @@ class PHPUnit_Util_Configuration
         }
 
         if ($root->hasAttribute('colors')) {
-            /* only allow boolean for compatibility with previous versions
-              'always' only allowed from command line */
-            if ($this->getBoolean($root->getAttribute('colors'), false)) {
-                $result['colors'] = PHPUnit_TextUI_ResultPrinter::COLOR_AUTO;
-            } else {
-                $result['colors'] = PHPUnit_TextUI_ResultPrinter::COLOR_NEVER;
-            }
+            $result['colors'] = $this->getBoolean(
+                (string) $root->getAttribute('colors'), false
+            );
         }
 
         /**
@@ -735,11 +731,12 @@ class PHPUnit_Util_Configuration
                 (string) $root->getAttribute('strict'), false
             );
 
-            $result['reportUselessTests']         = $flag;
-            $result['strictCoverage']             = $flag;
-            $result['disallowTestOutput']         = $flag;
-            $result['enforceTimeLimit']           = $flag;
-            $result['disallowTodoAnnotatedTests'] = $flag;
+            $result['reportUselessTests']          = $flag;
+            $result['strictCoverage']              = $flag;
+            $result['disallowTestOutput']          = $flag;
+            $result['enforceTimeLimit']            = $flag;
+            $result['disallowTodoAnnotatedTests']  = $flag;
+            $result['deprecatedStrictModeSetting'] = true;
         }
 
         if ($root->hasAttribute('verbose')) {

@@ -1,8 +1,3 @@
-Upcoming
-========
-
- * Clearer error message when specs have incorrect namespace prefix
-
 2.1.1 / 2015-01-09
 ==================
 
