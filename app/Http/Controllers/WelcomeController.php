@@ -1,7 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use Caffeinated\Themes\Facades\Theme;
+use Illuminate\Support\Facades\Config;
 
-class WelcomeController extends BaseController {
+class WelcomeController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -21,7 +23,7 @@ class WelcomeController extends BaseController {
 	 */
 	public function __construct()
 	{
-		//parent::__construct();
+		parent::__construct();
 
 		$this->middleware('guest');
 
@@ -34,11 +36,10 @@ class WelcomeController extends BaseController {
 	 */
 	public function index()
 	{
-
 		$data = [];
 		$data['version'] = '0.0.0.1';
 
-		return view('master', $data );
+		return Theme::view('welcome');
 	}
 
 }

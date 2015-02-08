@@ -2,6 +2,8 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Caffeinated\Themes\Facades\Theme;
 
 class Handler extends ExceptionHandler {
 
@@ -43,6 +45,18 @@ class Handler extends ExceptionHandler {
 		else
 		{
 			return parent::render($request, $e);
+		}
+	}
+
+	public function renderHttpException(HttpException $e)
+	{
+		if (view()->exists('errors.'.$e->getStatusCode()))
+		{
+			return Theme::response('errors.'.$e->getStatusCode(), [], $e->getStatusCode());
+		}
+		else
+		{
+			return parent::renderHttpException($e);
 		}
 	}
 

@@ -2879,5 +2879,55 @@
             "testing",
             "xunit"
         ]
+    },
+    {
+        "name": "caffeinated/themes",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/caffeinated/themes.git",
+            "reference": "0c6f9a889a4b773d0d0b7199094b3a8bfdd0eb19"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/caffeinated/themes/zipball/0c6f9a889a4b773d0d0b7199094b3a8bfdd0eb19",
+            "reference": "0c6f9a889a4b773d0d0b7199094b3a8bfdd0eb19",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "~5.0",
+            "illuminate/filesystem": "~5.0",
+            "illuminate/support": "~5.0",
+            "illuminate/view": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "suggest": {
+            "rcrowe/twigBridge": "Allows the ability to utilize Twig as the templating engine"
+        },
+        "time": "2015-02-04 19:38:11",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Caffeinated\\Themes\\": "src/Caffeinated/Themes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Shea Lewis",
+                "email": "shea.lewis89@gmail.com"
+            }
+        ],
+        "description": "Laravel 5 Themes",
+        "keywords": [
+            "caffeinated",
+            "laravel",
+            "themes"
+        ]
     }
 ]

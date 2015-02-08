@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		'Caffeinated\Themes\ThemesServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -193,6 +194,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'Theme'     => 'Caffeinated\Themes\Facades\Theme',
+		'Component' => 'Caffeinated\Themes\Facades\Component',
 
 	],
 
