@@ -4,6 +4,6 @@
 @include('includes.head')
 </head>
 <body>
-{{ $site_color }}
+{{ $version }}
 </body>
 </html>

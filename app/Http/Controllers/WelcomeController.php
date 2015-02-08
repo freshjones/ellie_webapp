@@ -36,6 +36,7 @@ class WelcomeController extends BaseController {
 	{
 
 		$data = [];
+		$data['version'] = '0.0.0.1';
 
 		return view('master', $data );
 	}
