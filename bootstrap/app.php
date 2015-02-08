@@ -11,17 +11,7 @@
 |
 */
 
-/*
-class ellieApp extends Illuminate\Foundation\Application
-{
-	public function storagePath()
-	{
-		return realpath(__DIR__.'/../../storage');
-	}
-}
-*/
-
-$app = new Illuminate\Foundation\Application (
+$app = new Illuminate\Foundation\Application(
 	realpath(__DIR__.'/../')
 );
 
