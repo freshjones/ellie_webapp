@@ -2,6 +2,6 @@
 
 class BaseController extends Controller {
 
-
+	/* not sure if this is needed or not */
 
 }
