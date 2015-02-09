@@ -11,6 +11,6 @@ abstract class Controller extends BaseController {
 	public function __construct()
 	{
 		\Theme::setActive('foobar');
+		\Theme::setLayout('layouts.default');
 	}
-
 }

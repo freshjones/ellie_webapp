@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Caffeinated\Themes\Facades\Theme;
+
 class HomeController extends Controller {
 
 	/*
@@ -20,7 +22,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		parent::__construct();
 	}
 
 	/**
@@ -30,7 +32,11 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$data = [];
+		$data['version'] = '0.0.0.1';
+		$data['title'] = 'A homepage Title';
+		$data['content'] = 'Here is my fake content';
+		return Theme::view('pages.home', $data);
 	}
 
 }

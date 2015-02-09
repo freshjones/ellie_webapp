@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('includes.head')
+    <title>{{ $site_name }}</title>
 </head>
 <body>
-    @include('includes.head')
+@yield('content')
 </body>
 </html>

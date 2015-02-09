@@ -56,6 +56,7 @@ class Themes
 		$this->config      = $config;
 		$this->files       = $files;
 		$this->viewFactory = $viewFactory;
+
 	}
 
 	/**
@@ -169,14 +170,33 @@ class Themes
 
 	/**
 	 * Sets theme layout.
-	 *
+	 * @param string $layout
 	 * @return Themes
 	 */
 	public function setLayout($layout)
 	{
-		$this->layout = $this->getThemeNamespace($layout);
+
+		$activeTheme   = $this->getActive();
+		$parent        = $this->getProperty($activeTheme.'::parent');
+
+		$views = [
+			'theme'  => $this->getThemeNamespace($layout),
+			'parent' => $this->getThemeNamespace($layout, $parent),
+			'module' => $this->getModuleView($layout),
+			'base'   => $layout
+		];
+
+		foreach ($views as $view) {
+			if ($this->viewFactory->exists($view)) {
+				$layout = $view;
+				break;
+			}
+		}
+
+		$this->layout = $layout;
 
 		return $this;
+
 	}
 
 	/**
@@ -191,14 +211,12 @@ class Themes
 		$activeTheme   = $this->getActive();
 		$parent        = $this->getProperty($activeTheme.'::parent');
 		$viewNamespace = null;
-
 		$views = [
 			'theme'  => $this->getThemeNamespace($view),
 			'parent' => $this->getThemeNamespace($view, $parent),
 			'module' => $this->getModuleView($view),
 			'base'   => $view
 		];
-
 		foreach ($views as $view) {
 			if ($this->viewFactory->exists($view)) {
 				$viewNamespace = $view;
@@ -220,7 +238,7 @@ class Themes
 	{
 		$this->autoloadComponents($this->getActive());
 
-		if (! is_null($this->layout)) {
+		if (! is_null($this->layout) ) {
 			$data['theme_layout'] = $this->getLayout();
 		}
 
@@ -356,10 +374,10 @@ class Themes
 	protected function getThemeNamespace($key, $theme = null)
 	{
 		if (is_null($theme)) {
-			return $this->getActive()."::{$key}";
+			return $this->getActive() . "::{$key}";
 		} else {
 			return $theme."::{$key}";
-		}		
+		}
 	}
 
 	/**

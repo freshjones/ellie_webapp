@@ -1,1 +1,0 @@
-@include('templates.template_' . $site_template . '.site_templates.default')

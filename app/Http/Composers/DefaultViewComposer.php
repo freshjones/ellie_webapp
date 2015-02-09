@@ -3,7 +3,7 @@
 use Illuminate\Contracts\View\View;
 use App\Variables;
 
-class MasterComposer {
+class DefaultViewComposer {
 
 	/**
 	 * The user repository implementation.

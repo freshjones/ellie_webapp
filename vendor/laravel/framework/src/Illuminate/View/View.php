@@ -152,7 +152,6 @@ class View implements ArrayAccess, ViewContract {
 				$data[$key] = $value->render();
 			}
 		}
-
 		return $data;
 	}
 
