@@ -13,7 +13,7 @@ class DefaultViewServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$layout = $this->getLayout('layouts.default');
+		$layout = $this->getLayout('master');
 		View::composer($layout, 'App\Http\Composers\DefaultViewComposer');
 	}
 

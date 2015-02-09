@@ -33,10 +33,37 @@ class HomeController extends Controller {
 	public function index()
 	{
 		$data = [];
+
+		$editmode = true;
+
+		$data['edit_mode'] = $editmode;
+
+		$classes = array();
+		if($editmode) { $classes[] = 'edit-mode'; }
+
+		$data['classes'] = implode(' ', $classes);
+
 		$data['version'] = '0.0.0.1';
 		$data['title'] = 'A homepage Title';
 		$data['content'] = 'Here is my fake content';
-		return Theme::view('pages.home', $data);
+
+		$data['header_top'] = null;
+		$data['header'] = null;
+		$data['preface_top'] = null;
+		$data['preface_bottom'] = null;
+
+		$data['content_top'] = null;
+		$data['content'] = null;
+		$data['content_bottom'] = null;
+
+		$data['sidebar_first'] = null;
+		$data['sidebar_second'] = null;
+
+		$data['footer_top'] = null;
+		$data['footer'] = null;
+		$data['footer_bottom'] = null;
+
+		return Theme::view('pages.master', $data);
 	}
 
 }
