@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Pages;
 
+use App\Http\Controllers\Controller;
 use Caffeinated\Themes\Facades\Theme;
 
 class HomeController extends Controller {
@@ -14,7 +15,7 @@ class HomeController extends Controller {
 	| controller as you wish. It is just here to get your app started!
 	|
 	*/
-
+	protected $editmode;
 	/**
 	 * Create a new controller instance.
 	 *
@@ -23,6 +24,8 @@ class HomeController extends Controller {
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->editmode = true;
 	}
 
 	/**
@@ -34,12 +37,10 @@ class HomeController extends Controller {
 	{
 		$data = [];
 
-		$editmode = true;
-
-		$data['edit_mode'] = $editmode;
+		$data['edit_mode'] = $this->editmode;
 
 		$classes = array();
-		if($editmode) { $classes[] = 'edit-mode'; }
+		if($this->editmode) { $classes[] = 'edit-mode'; }
 
 		$data['classes'] = implode(' ', $classes);
 
@@ -48,7 +49,7 @@ class HomeController extends Controller {
 		$data['content'] = 'Here is my fake content';
 
 		$data['header_top'] = null;
-		$data['header'] = null;
+		$data['header'] = $this->dummyModules(3);
 		$data['preface_top'] = null;
 		$data['preface_bottom'] = null;
 
@@ -64,6 +65,40 @@ class HomeController extends Controller {
 		$data['footer_bottom'] = null;
 
 		return Theme::view('pages.master', $data);
+	}
+
+	protected function dummyModules($repeats=1)
+	{
+		$content = '';
+
+		for($i=0; $i<$repeats; $i++)
+		{
+			$content .= '<div class="block">';
+
+			if($this->editmode)
+			{
+				$content .= '<div class="block-edit active">';
+						$content .= '<ul class="tools">';
+		                $content .= '<li class="fa fa-arrows move"></li>';
+						$content .= '<li class="fa fa-wrench edit"></li>';
+				$content .= '</div>';
+			}
+
+			$content .= $this->loremParagraph();
+			$content .= '</div>';
+		}
+
+		return $content;
+
+	}
+
+	protected function loremParagraph()
+	{
+		$content = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys';
+		$content .= 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys';
+		$content .= 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys';
+
+		return $content;
 	}
 
 }

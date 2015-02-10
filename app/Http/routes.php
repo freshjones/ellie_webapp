@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+
+
+Route::group(['namespace' => 'Pages' ], function()
+{
+	Route::get('/', 'HomeController@index');
+});
 
 Route::group(['prefix' => 'cache', 'namespace' => 'Cache' ], function()
 {

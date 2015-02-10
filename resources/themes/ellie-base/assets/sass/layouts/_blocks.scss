@@ -1,0 +1,35 @@
+.block
+{
+  position:relative;
+}
+
+.block-edit
+{
+
+  position:absolute;
+  top:0;
+  left:0;
+  background:#fff;
+  border:1px solid #ccc;
+
+  .tools  {
+    @extend .no-style;
+  }
+
+  .tools li
+  {
+    @extend .pointer;
+    padding:5px;
+  }
+
+  .tools .move
+  {
+    @extend .gripper;
+  }
+
+}
+
+.block + .block
+{
+  margin-top:10px;
+}

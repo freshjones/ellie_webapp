@@ -18,14 +18,29 @@
 var gulp        = require('gulp');
 var sass        = require('gulp-sass') ;
 var browserSync = require('browser-sync');
+var cp          = require('child_process');
 
-gulp.task('css', function() {
+gulp.task('css', function () {
 
- return gulp.src('assets/sass/*.scss')
+    cp.exec('sass -r sass-globbing --sourcemap=none --style compressed assets/sass/app.scss assets/css/app.css', function (error, stdout, stderr)
+    {
+       if (stderr) {
+           console.log(stderr);
+       }
+
+        gulp.src('assets/css/app.css')
+            .pipe(gulp.dest('../../../public/css/'))
+            .pipe( browserSync.reload({stream:true}) );
+
+    });
+});
+
+gulp.task('css-old', function() {
+
+ return gulp.src('assets/sass/**/*.scss')
      .pipe( sass({ outputStyle : 'compressed', 'sourcemap=none': true }) )
      .pipe(gulp.dest('../../../public/css/'))
      .pipe( browserSync.reload({stream:true}) );
-
 });
 
 gulp.task('js', function () {
@@ -39,7 +54,7 @@ gulp.task('js', function () {
 
 gulp.task('browser-sync', function() {
  browserSync({
-  proxy: "ellie.app:80",
+  proxy: "ellie.site:80",
   open: false,
   notify: false
  });

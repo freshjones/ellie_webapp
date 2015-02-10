@@ -1,0 +1,100 @@
+.edit-mode .layout
+{
+  border: solid 1px #ccc;
+  padding: 5px;
+  margin-bottom:10px;
+}
+
+.region-label
+{
+  font-size:75%;
+  text-transform: uppercase;
+  color:#ccc;
+}
+
+.region
+{
+  position:relative;
+}
+
+.edit-mode .layout > .region
+{
+
+  background-color: #f3f3f3;
+  border: 1px solid darken(#f3f3f3,10%);
+  padding: 5px;
+  margin-bottom:5px;
+
+  &:last-child
+  {
+    margin-bottom:0;
+  }
+
+}
+
+.region-edit
+{
+
+  .label {
+    text-transform: uppercase;
+    color:#ccc;
+    font-size:75%;
+  }
+
+  a
+  {
+    color:#999;
+    text-decoration: none;
+  }
+
+  .tools
+  {
+    position:absolute;
+    top:2px;
+    right:2px;
+    z-index: 99;
+    text-align: right;
+  }
+
+  .tools .label
+  {
+    @extend .pointer;
+    font-size:100%;
+  }
+
+  .tools .menu
+  {
+    background:#fff;
+    padding:5px;
+    font-size:75%;
+  }
+
+  .tools .menu {
+    @extend .no-style;
+    display:none;
+    border:1px solid #ccc;
+    margin-top:-1px;
+    text-align: left;
+  }
+
+  &.active > .tools > .menu
+  {
+    display:block;
+  }
+
+  &.active > .tools > .label
+  {
+    background:#fff;
+    padding:5px;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-top:1px solid #ccc;
+    vertical-align: inherit;
+  }
+
+  .tools .menu > li
+  {
+    padding: 3px 0;
+  }
+
+}
