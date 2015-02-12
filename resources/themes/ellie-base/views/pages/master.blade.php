@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     @component_head( isset($site_name) ? $site_name : 'Ellie'  )
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="{{ $classes }}">
 
