@@ -6,10 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreatePagesTable' => $baseDir . '/database/migrations/2015_02_11_190954_create_pages_table.php',
-    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
-    'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-    'CreateVariablesTable' => $baseDir . '/database/migrations/2015_01_26_205940_create_variables_table.php',
+    'CreateFieldInstancesTable' => $baseDir . '/database/migrations/2015_02_13_212154_create_field_instances_table.php',
+    'CreateFieldsTable' => $baseDir . '/database/migrations/2015_02_13_212206_create_fields_table.php',
+    'CreateNodeTypesTable' => $baseDir . '/database/migrations/2015_02_13_213940_create_node_types_table.php',
+    'CreateNodesTable' => $baseDir . '/database/migrations/2015_02_13_212047_create_nodes_table.php',
+    'CreateVariablesTable' => $baseDir . '/database/migrations/2015_02_13_211928_create_variables_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'DefaultsSeeder' => $baseDir . '/database/seeds/DefaultsSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',
@@ -428,4 +429,5 @@ return array(
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
     'VariablesSeeder' => $baseDir . '/database/seeds/DefaultsSeeder.php',
+    'VariablesTableSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
 );

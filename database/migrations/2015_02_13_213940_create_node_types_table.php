@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVariablesTable extends Migration {
+class CreateNodeTypesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateVariablesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('variables', function(Blueprint $table)
+		//
+		Schema::create('node_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name')->unique();
-			$table->longText('value');
-			$table->timestamps();
+			$table->string('type');
+			$table->string('name');
+			$table->string('description');
 		});
 	}
 
@@ -28,7 +29,8 @@ class CreateVariablesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('variables');
+		//
+		Schema::drop('node_types');
 	}
 
 }

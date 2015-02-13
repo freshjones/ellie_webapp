@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use app\Variables;
 
 class DefaultsSeeder extends Seeder {
 
@@ -23,7 +24,6 @@ class DefaultsSeeder extends Seeder {
 	public function run()
 	{
 		Model::unguard();
-
 		$this->call('VariablesSeeder');
 	}
 

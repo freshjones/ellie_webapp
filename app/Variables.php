@@ -12,6 +12,8 @@ class Variables extends Model {
 	 */
 	protected $table = 'variables';
 
+	protected $timestamps = true;
+
 	protected $fillable = ['name','value'];
 
 	protected function getVar($name)
